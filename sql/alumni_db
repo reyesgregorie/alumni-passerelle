@@ -1,0 +1,269 @@
+-- phpMyAdmin SQL Dump
+-- version 4.9.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Jul 27, 2020 at 01:00 PM
+-- Server version: 5.7.26
+-- PHP Version: 7.4.1
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `alumni_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Answers`
+--
+
+CREATE TABLE `Answers` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Events`
+--
+
+CREATE TABLE `Events` (
+  `id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `tag` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Groups`
+--
+
+CREATE TABLE `Groups` (
+  `id` int(11) NOT NULL,
+  `author_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `parent_id` int(11) NOT NULL,
+  `tag` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Questions`
+--
+
+CREATE TABLE `Questions` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL,
+  `text` text NOT NULL,
+  `date` date NOT NULL,
+  `tag` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Users`
+--
+
+CREATE TABLE `Users` (
+  `Id` int(11) NOT NULL,
+  `firstName` varchar(50) NOT NULL,
+  `lastName` varchar(50) NOT NULL,
+  `role` varchar(50) NOT NULL,
+  `city` varchar(70) DEFAULT NULL,
+  `email` varchar(70) NOT NULL,
+  `urlPhoto` varchar(255) DEFAULT NULL,
+  `urlAvatar` varchar(100) DEFAULT NULL,
+  `promotion` varchar(50) NOT NULL,
+  `experiences` text,
+  `actual` tinyint(1) DEFAULT NULL,
+  `bio` text,
+  `companyName` text,
+  `urlLinkedin` varchar(255) DEFAULT NULL,
+  `urlPortfolio` varchar(255) DEFAULT NULL,
+  `password` varchar(11) NOT NULL,
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `date_update` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Users`
+--
+
+INSERT INTO `Users` (`Id`, `firstName`, `lastName`, `role`, `city`, `email`, `urlPhoto`, `urlAvatar`, `promotion`, `experiences`, `actual`, `bio`, `companyName`, `urlLinkedin`, `urlPortfolio`, `password`, `date_create`, `date_update`) VALUES
+(1, 'Cicely', 'Southerell', 'étudiant', 'Wola Rębkowska', 'csoutherell0@gov.uk', NULL, NULL, 'Polaris', NULL, NULL, 'sit amet nulla quisque arcu libero rutrum ac lobortis vel dapibus', NULL, NULL, NULL, 'sollicitudi', '2020-07-20 13:46:49', '2020-07-21 12:09:09'),
+(2, 'Myron', 'Lewsy', 'étudiant', 'Wentai', 'mlewsy1@hexun.com', NULL, NULL, 'Zéphyr', NULL, NULL, 'pede venenatis non sodales sed tincidunt eu felis fusce posuere felis sed lacus', NULL, NULL, NULL, 'ante', '2020-07-20 13:46:49', '2020-07-21 12:09:09'),
+(3, 'Desiri', 'Reina', 'alumni', 'Baranusa', 'dreina2@goodreads.com', NULL, NULL, 'Zéphyr', NULL, NULL, 'erat eros viverra eget congue eget semper rutrum nulla nunc', NULL, NULL, NULL, 'integer', '2020-07-20 13:46:49', '2020-07-21 12:09:33'),
+(4, 'Feodor', 'Jeratt', 'alumni', 'Huancheng', 'fjeratt3@chronoengine.com', NULL, NULL, 'Zéphyr', NULL, NULL, 'nulla dapibus dolor vel est donec odio justo sollicitudin ut suscipit a feugiat et eros vestibulum', NULL, NULL, NULL, 'nam', '2020-07-20 13:46:49', '2020-07-21 12:09:33'),
+(5, 'Babbie', 'Dobson', 'staff', 'Villa Ángela', 'bdobson4@slideshare.net', NULL, NULL, 'Polaris', NULL, NULL, 'pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla', NULL, NULL, NULL, 'tincidunt', '2020-07-20 13:46:49', '2020-07-21 12:09:57'),
+(6, 'Gavra', 'Caldwall', 'staff', 'Kuala Lumpur', 'gcaldwall5@mozilla.org', NULL, NULL, 'Polaris', NULL, NULL, 'in est risus auctor sed tristique in tempus sit amet sem fusce consequat nulla nisl', NULL, NULL, NULL, 'nec', '2020-07-20 13:46:49', '2020-07-21 12:09:57'),
+(7, 'Alexis', 'Hessenthaler', 'formateur', 'Birni N Konni', 'ahessenthaler6@buzzfeed.com', NULL, NULL, 'Polaris', NULL, NULL, 'pretium iaculis justo in hac habitasse platea dictumst etiam faucibus cursus urna ut', NULL, NULL, NULL, 'lacus', '2020-07-20 13:46:49', '2020-07-21 12:10:22'),
+(8, 'Nicolette', 'Sterling', 'formateur', 'Gore', 'nsterling7@state.tx.us', NULL, NULL, 'Aurora', NULL, NULL, 'cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus at velit vivamus', NULL, NULL, NULL, 'in', '2020-07-20 13:46:49', '2020-07-21 12:10:22'),
+(9, 'Gianni', 'Milthorpe', 'étudiant', 'Río Cauto', 'gmilthorpe8@nydailynews.com', NULL, NULL, 'Aurora', NULL, NULL, 'integer a nibh in quis justo maecenas rhoncus aliquam lacus morbi quis tortor id nulla', NULL, NULL, NULL, 'commodo', '2020-07-20 13:46:49', '2020-07-21 12:10:39'),
+(10, 'Pietrek', 'Friese', 'étudiant', 'Tohong', 'pfriese9@ycombinator.com', NULL, NULL, 'Aurora', NULL, NULL, 'sapien iaculis congue vivamus metus arcu adipiscing molestie hendrerit at vulputate vitae nisl aenean lectus', NULL, NULL, NULL, 'ipsum', '2020-07-20 13:46:49', '2020-07-21 12:10:39'),
+(11, 'Greg', 'Reyes', 'admin', '92i', 'adminG', NULL, NULL, 'Zéphyr', NULL, NULL, NULL, NULL, NULL, NULL, 'passwordG', '2020-07-21 12:06:30', '2020-07-21 12:07:56');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `UsersToEvents`
+--
+
+CREATE TABLE `UsersToEvents` (
+  `user_id` int(11) NOT NULL,
+  `event_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `UsersToGroups`
+--
+
+CREATE TABLE `UsersToGroups` (
+  `user_id` int(11) NOT NULL,
+  `group_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Answers`
+--
+ALTER TABLE `Answers`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`question_id`),
+  ADD KEY `question_id` (`question_id`);
+
+--
+-- Indexes for table `Events`
+--
+ALTER TABLE `Events`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_id` (`author_id`);
+
+--
+-- Indexes for table `Groups`
+--
+ALTER TABLE `Groups`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `author_id` (`author_id`,`parent_id`),
+  ADD KEY `parent_id` (`parent_id`);
+
+--
+-- Indexes for table `Questions`
+--
+ALTER TABLE `Questions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`group_id`),
+  ADD KEY `group_id` (`group_id`);
+
+--
+-- Indexes for table `Users`
+--
+ALTER TABLE `Users`
+  ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `UsersToEvents`
+--
+ALTER TABLE `UsersToEvents`
+  ADD PRIMARY KEY (`user_id`,`event_id`),
+  ADD KEY `user_id` (`user_id`,`event_id`),
+  ADD KEY `event_id` (`event_id`);
+
+--
+-- Indexes for table `UsersToGroups`
+--
+ALTER TABLE `UsersToGroups`
+  ADD PRIMARY KEY (`user_id`,`group_id`),
+  ADD KEY `user_id` (`user_id`,`group_id`),
+  ADD KEY `group_id` (`group_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Answers`
+--
+ALTER TABLE `Answers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Events`
+--
+ALTER TABLE `Events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Questions`
+--
+ALTER TABLE `Questions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Users`
+--
+ALTER TABLE `Users`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Answers`
+--
+ALTER TABLE `Answers`
+  ADD CONSTRAINT `answers_ibfk_1` FOREIGN KEY (`question_id`) REFERENCES `Questions` (`id`),
+  ADD CONSTRAINT `answers_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `Users` (`Id`);
+
+--
+-- Constraints for table `Events`
+--
+ALTER TABLE `Events`
+  ADD CONSTRAINT `events_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `Users` (`Id`);
+
+--
+-- Constraints for table `Groups`
+--
+ALTER TABLE `Groups`
+  ADD CONSTRAINT `groups_ibfk_1` FOREIGN KEY (`author_id`) REFERENCES `Users` (`Id`),
+  ADD CONSTRAINT `groups_ibfk_2` FOREIGN KEY (`parent_id`) REFERENCES `Groups` (`id`);
+
+--
+-- Constraints for table `Questions`
+--
+ALTER TABLE `Questions`
+  ADD CONSTRAINT `questions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`Id`),
+  ADD CONSTRAINT `questions_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `Groups` (`id`);
+
+--
+-- Constraints for table `UsersToEvents`
+--
+ALTER TABLE `UsersToEvents`
+  ADD CONSTRAINT `userstoevents_ibfk_1` FOREIGN KEY (`event_id`) REFERENCES `Events` (`id`),
+  ADD CONSTRAINT `userstoevents_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `Users` (`Id`);
+
+--
+-- Constraints for table `UsersToGroups`
+--
+ALTER TABLE `UsersToGroups`
+  ADD CONSTRAINT `userstogroups_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`Id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `userstogroups_ibfk_2` FOREIGN KEY (`group_id`) REFERENCES `Groups` (`id`);
