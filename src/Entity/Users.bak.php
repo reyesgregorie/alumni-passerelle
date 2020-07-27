@@ -2,26 +2,26 @@
 
 namespace App\Entity;
 
-use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity(repositoryClass=UsersRepository::class)
- * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * Users
+ *
+ * @ORM\Table(name="Users")
+ * @ORM\Entity(repositoryClass="App\Repository\UsersRepository")
  */
-class Users implements UserInterface
+class UsersBak
 {
     /**
-     * @ORM\Id()
-     * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @var int
+     *
+     * @ORM\Column(name="Id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
 
     /**
      * @var string
@@ -42,7 +42,7 @@ class Users implements UserInterface
      *
      * @ORM\Column(name="role", type="string", length=50, nullable=false)
      */
-    private $role = "ROLE_USER";
+    private $role;
 
     /**
      * @var string|null
@@ -52,10 +52,11 @@ class Users implements UserInterface
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=70, nullable=false)
      */
     private $email;
-
 
     /**
      * @var string|null
@@ -120,10 +121,10 @@ class Users implements UserInterface
      */
     private $urlportfolio;
 
-
     /**
-     * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=11, nullable=false)
      */
     private $password;
 
@@ -179,72 +180,10 @@ class Users implements UserInterface
         $this->event = new \Doctrine\Common\Collections\ArrayCollection();
         $this->group = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): self
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * A visual identifier that represents this user.
-     *
-     * @see UserInterface
-     */
-    public function getUsername(): string
-    {
-        return (string) $this->email;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function getRoles(): array
-    {
-        return [$this->role];
-    }
-
-
-    /**
-     * @see UserInterface
-     */
-    public function getPassword(): string
-    {
-        return (string) $this->password;
-    }
-
-    public function setPassword(string $password): self
-    {
-        $this->password = $password;
-
-        return $this;
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function getSalt()
-    {
-        // not needed when using the "bcrypt" algorithm in security.yaml
-    }
-
-    /**
-     * @see UserInterface
-     */
-    public function eraseCredentials()
-    {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 
     public function getFirstname(): ?string
@@ -291,6 +230,18 @@ class Users implements UserInterface
     public function setCity(?string $city): self
     {
         $this->city = $city;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): self
+    {
+        $this->email = $email;
 
         return $this;
     }
@@ -403,6 +354,18 @@ class Users implements UserInterface
         return $this;
     }
 
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): self
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
     public function getDateCreate(): ?\DateTimeInterface
     {
         return $this->dateCreate;
@@ -478,4 +441,5 @@ class Users implements UserInterface
 
         return $this;
     }
+
 }
