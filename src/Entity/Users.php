@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UsersRepository::class)
@@ -25,21 +26,21 @@ class Users implements UserInterface
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="le titre est obligatoire")
      * @ORM\Column(name="firstName", type="string", length=50, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank( ce message="contenu est obligatoire")
      * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
      */
     private $lastname;
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="ce contenu est obligatoire")
      * @ORM\Column(name="role", type="string", length=50, nullable=false)
      */
     private $role = "ROLE_USER";
@@ -53,13 +54,14 @@ class Users implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Assert\NotBlank(message="ce contenu est obligatoire")
      */
     private $email;
 
 
     /**
      * @var string|null
-     *
+     * @Assert\NotBlank(message="email obligatoire")
      * @ORM\Column(name="urlPhoto", type="string", length=255, nullable=true)
      */
     private $urlphoto;
@@ -80,6 +82,7 @@ class Users implements UserInterface
 
     /**
      * @var string|null
+     * @Assert\NotBlank(ce contenu est  onligatoi)
      *
      * @ORM\Column(name="experiences", type="text", length=65535, nullable=true)
      */
@@ -129,7 +132,7 @@ class Users implements UserInterface
 
     /**
      * @var \DateTime
-     *
+     * @Assert\NotBlank(mot de pass obligatoire)
      * @ORM\Column(name="date_create", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateCreate = 'CURRENT_TIMESTAMP';
