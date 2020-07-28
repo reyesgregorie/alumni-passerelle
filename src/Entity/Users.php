@@ -33,7 +33,7 @@ class Users implements UserInterface
 
     /**
      * @var string
-     * @Assert\NotBlank( ce message="contenu est obligatoire")
+     * @Assert\NotBlank(message="contenu est obligatoire")
      * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
      */
     private $lastname;
@@ -61,7 +61,6 @@ class Users implements UserInterface
 
     /**
      * @var string|null
-     * @Assert\NotBlank(message="email obligatoire")
      * @ORM\Column(name="urlPhoto", type="string", length=255, nullable=true)
      */
     private $urlphoto;
@@ -76,14 +75,12 @@ class Users implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="promotion", type="string", length=50, nullable=false)
+     * @ORM\Column(name="promotion", type="string", length=50, nullable=true)
      */
     private $promotion;
 
     /**
      * @var string|null
-     * @Assert\NotBlank(ce contenu est  onligatoi)
-     *
      * @ORM\Column(name="experiences", type="text", length=65535, nullable=true)
      */
     private $experiences;
@@ -132,7 +129,7 @@ class Users implements UserInterface
 
     /**
      * @var \DateTime
-     * @Assert\NotBlank(mot de pass obligatoire)
+     * @Assert\NotBlank()
      * @ORM\Column(name="date_create", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateCreate = 'CURRENT_TIMESTAMP';
