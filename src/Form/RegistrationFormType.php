@@ -26,11 +26,11 @@ class RegistrationFormType extends AbstractType
                     'placeholder'=>'Choisissez un rôle',
                     'choices'=>
                         [
-                            'Admin' => 'admin',
-                            'Étudiant' => 'etudiant',
-                            'Alumni' => 'ancien',
-                            'Staff' => 'staff',
-                            'Formateur' => 'formateur'
+                            'Admin' => 'ROLE_ADMIN',
+                            'Étudiant' => 'ROLE_USER',
+                            'Alumni' => 'ROLE_USER',
+                            'Staff' => 'ROLE_ADMIN',
+                            'Formateur' => 'ROLE_USER'
                         ]
                 ])
             ->add('promotion', ChoiceType::class,
