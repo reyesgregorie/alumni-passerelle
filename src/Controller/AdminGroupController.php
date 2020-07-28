@@ -2,8 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Groups;
+use App\Form\GroupType;
 use App\Repository\GroupsRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminGroupController extends AbstractController
@@ -19,6 +24,72 @@ class AdminGroupController extends AbstractController
             'groups' => $groups,
         ]);
     }
+
+    /**
+     *
+     * @Route("/admin/groups/edition/{id}",defaults={"id": null},requirements={"id": "\d+"})
+     */
+    public  function edit(
+        $id,
+        GroupsRepository $groupsRepository,
+        Request $request,EntityManagerInterface $entityManager
+    )
+    {
+        if (is_null($id))
+        {
+            $groups = new Groups();
+            $groups
+                ->setDate(new \DateTime())
+                ->setAuthor($this->getUser())
+            ;
+        }
+        else
+        {
+            $groups = $groupsRepository->find($id);
+        }
+
+        $form = $this->createForm(GroupType::class, $groups);
+        $form->handleRequest($request);
+
+
+        if($form->isSubmitted())
+        {
+            if ($form->isValid())
+            {
+                $entityManager->persist($groups);
+                $entityManager->flush();
+
+
+                return $this->redirectToRoute('app_admingroup_index');
+            }
+
+        }
+
+        return $this->render(
+            'admin_group/edit.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
+
+
+
+
+
+    }
+
+    /**
+     * @Route("admin/supresion-group/{id}",requirements={"id": "\d+"})
+     */
+    public function delete(Groups $groups,EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($groups);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_admingroup_index');
+
+    }
+
 }
 
 

@@ -49,7 +49,7 @@ class UserType extends AbstractType
             ->add('email',
                 EmailType::class,
                 [
-                    'label'=>'Email'
+                    'label'=>'Email '
                 ]
 
 
