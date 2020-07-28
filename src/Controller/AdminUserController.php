@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Article;
-use App\Form\ArticleType;
-use App\Repository\ArticleRepository;
+use App\Entity\Users;
+use App\Form\UserType;
 use App\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -29,7 +28,7 @@ class AdminUserController extends AbstractController
     /**
      * @Route("/admin/user/edition{id}",defaults={"id":null})
      */
-/*
+
     public  function  edit (
         $id,
         UsersRepository $usersRepository,
@@ -39,7 +38,7 @@ class AdminUserController extends AbstractController
 
         if(is_null($id)) // création
         {
-            $user = new Article();
+            $user = new Users();
             $user->setPublicationDate(new \DateTime());
         }
         else // modification
@@ -48,7 +47,7 @@ class AdminUserController extends AbstractController
         }
 
 
-        $form = $this->createForm(ArticleType::class, $user);
+        $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
 
@@ -59,18 +58,18 @@ class AdminUserController extends AbstractController
                 $entityManager->persist($user);
                 $entityManager->flush();
 
-                return $this->redirectToRoute('app_adminarticle_index');
+                return $this->redirectToRoute('app_adminuser_index');
             }
         }
 
         return  $this->render(
-            'admin_user/edit.html.twig',
+            'admin_user/index.html.twig',
             [
                 'form' => $form->createView()
             ]
         );
 
 
-    }*/
+    }
 
 }

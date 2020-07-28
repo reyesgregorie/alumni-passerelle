@@ -33,7 +33,7 @@ class Users implements UserInterface
 
     /**
      * @var string
-     * @Assert\NotBlank( ce message="contenu est obligatoire")
+     * @Assert\NotBlank(message="ce contenu est obligatoire")
      * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
      */
     private $lastname;
@@ -75,14 +75,14 @@ class Users implements UserInterface
 
     /**
      * @var string
-     *
+     * @Assert\NotBlank(message="ce contenu est obligatoire")
      * @ORM\Column(name="promotion", type="string", length=50, nullable=false)
      */
     private $promotion;
 
     /**
      * @var string|null
-     * @Assert\NotBlank(ce contenu est  onligatoi)
+     * @Assert\NotBlank(message=" contenu est  onligatoire")
      *
      * @ORM\Column(name="experiences", type="text", length=65535, nullable=true)
      */
@@ -132,7 +132,7 @@ class Users implements UserInterface
 
     /**
      * @var \DateTime
-     * @Assert\NotBlank(mot de pass obligatoire)
+     * @Assert\NotBlank()
      * @ORM\Column(name="date_create", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateCreate = 'CURRENT_TIMESTAMP';
@@ -480,5 +480,9 @@ class Users implements UserInterface
         }
 
         return $this;
+    }
+
+    public function setPublicationDate(\DateTime $param)
+    {
     }
 }
