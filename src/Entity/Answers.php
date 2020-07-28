@@ -50,7 +50,7 @@ class Answers
      *
      * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="user_id", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      * })
      */
     private $user;

@@ -26,21 +26,21 @@ class Users implements UserInterface
 
     /**
      * @var string
-     * @Assert\NotBlank(message="le titre est obligatoire")
+     * @Assert\NotBlank(message="Le prénom est obligatoire")
      * @ORM\Column(name="firstName", type="string", length=50, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
-     * @Assert\NotBlank(message="contenu est obligatoire")
+     * @Assert\NotBlank(message="Le nom est obligatoire")
      * @ORM\Column(name="lastName", type="string", length=50, nullable=false)
      */
     private $lastname;
 
     /**
      * @var string
-     * @Assert\NotBlank(message="ce contenu est obligatoire")
+     * @Assert\NotBlank(message="Le rôle doit être défini")
      * @ORM\Column(name="role", type="string", length=50, nullable=false)
      */
     private $role = "ROLE_USER";
@@ -54,7 +54,7 @@ class Users implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
-     * @Assert\NotBlank(message="ce contenu est obligatoire")
+     * @Assert\NotBlank(message="L'email est obligatoire")
      */
     private $email;
 
@@ -129,14 +129,12 @@ class Users implements UserInterface
 
     /**
      * @var \DateTime
-     * @Assert\NotBlank()
      * @ORM\Column(name="date_create", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateCreate = 'CURRENT_TIMESTAMP';
 
     /**
      * @var \DateTime
-     *
      * @ORM\Column(name="date_update", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
      */
     private $dateUpdate = 'CURRENT_TIMESTAMP';
@@ -145,14 +143,6 @@ class Users implements UserInterface
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Events", inversedBy="user")
-     * @ORM\JoinTable(name="userstoevents",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="user_id", referencedColumnName="Id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="event_id", referencedColumnName="id")
-     *   }
-     * )
      */
     private $event;
 
@@ -160,14 +150,6 @@ class Users implements UserInterface
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Groups", inversedBy="user")
-     * @ORM\JoinTable(name="userstogroups",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="user_id", referencedColumnName="Id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="group_id", referencedColumnName="id")
-     *   }
-     * )
      */
     private $group;
 

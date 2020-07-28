@@ -49,7 +49,7 @@ class Events
      *
      * @ORM\ManyToOne(targetEntity="Users")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="author_id", referencedColumnName="Id")
+     *   @ORM\JoinColumn(name="author_id", referencedColumnName="id")
      * })
      */
     private $author;
