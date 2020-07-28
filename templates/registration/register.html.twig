@@ -12,14 +12,15 @@
         {{ form_start(registrationForm) }}
 
             {{ form_row(registrationForm.role) }}
+            {{ form_row(registrationForm.promotion) }}
             {{ form_row(registrationForm.firstname) }}
             {{ form_row(registrationForm.lastname) }}
             {{ form_row(registrationForm.email) }}
             {{ form_row(registrationForm.plainPassword, {
-                label: 'Mot de passe'
+                label: 'Mot de passe temporaire'
             }) }}
 
-            <button type="submit" class="btn">Créer</button>
+            <button type="submit" class="btn btn-primary">Créer</button>
         {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

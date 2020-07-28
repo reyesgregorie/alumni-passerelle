@@ -43,7 +43,7 @@ class Users implements UserInterface
      * @Assert\NotBlank(message="Le rôle doit être défini")
      * @ORM\Column(name="role", type="string", length=50, nullable=false)
      */
-    private $role = "ROLE_USER";
+    private $role;
 
     /**
      * @var string|null
@@ -53,7 +53,7 @@ class Users implements UserInterface
     private $city;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=180, unique=true, nullable=false)
      * @Assert\NotBlank(message="L'email est obligatoire")
      */
     private $email;
@@ -75,7 +75,7 @@ class Users implements UserInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="promotion", type="string", length=50, nullable=true)
+     * @ORM\Column(name="promotion", type="string", length=50, nullable=false)
      */
     private $promotion;
 
@@ -129,15 +129,15 @@ class Users implements UserInterface
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="date_create", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="date_create", type="datetime", nullable=false)
      */
-    private $dateCreate = 'CURRENT_TIMESTAMP';
+    private $dateCreate;
 
     /**
      * @var \DateTime
-     * @ORM\Column(name="date_update", type="datetime", nullable=false, options={"default"="CURRENT_TIMESTAMP"})
+     * @ORM\Column(name="date_update", type="datetime", nullable=false)
      */
-    private $dateUpdate = 'CURRENT_TIMESTAMP';
+    private $dateUpdate;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -160,6 +160,9 @@ class Users implements UserInterface
     {
         $this->event = new \Doctrine\Common\Collections\ArrayCollection();
         $this->group = new \Doctrine\Common\Collections\ArrayCollection();
+        $now = new \DateTime();
+        $this->dateCreate = $now;
+        $this->dateUpdate = $now;
     }
     public function getId(): ?int
     {

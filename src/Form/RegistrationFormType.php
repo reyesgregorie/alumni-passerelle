@@ -3,10 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Users;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -20,11 +20,33 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('role', ChoiceType::class,
-                ['admin'=> 'Admin', 'student'=> 'Étudiant', ])
-            ->add('firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('email')
+            ->add(
+                'role', ChoiceType::class,
+                [
+                    'placeholder'=>'Choisissez un rôle',
+                    'choices'=>
+                        [
+                            'Admin' => 'admin',
+                            'Étudiant' => 'etudiant',
+                            'Alumni' => 'ancien',
+                            'Staff' => 'staff',
+                            'Formateur' => 'formateur'
+                        ]
+                ])
+            ->add('promotion', ChoiceType::class,
+            [
+                'placeholder' => 'Choisissez une promotion',
+                'choices' =>
+                    [
+                        'Aurora' => 'aurora',
+                        'Polaris' => 'polaris',
+                        'Zéphyr' => 'zéphyr'
+                    ]
+            ]
+            )
+            ->add('firstname', TextType::class, ['label'=>'Prénom', 'attr' => ['placeholder' => 'Prénom...']])
+            ->add('lastname', TextType::class, ['label'=>'Nom', 'attr' => ['placeholder' => 'Nom...']])
+            ->add('email', EmailType::class, ['attr' => ['placeholder' => 'me@mail.com...']])
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
@@ -40,6 +62,7 @@ class RegistrationFormType extends AbstractType
                         'max' => 4096,
                     ]),
                 ],
+                'attr' => ['placeholder' => 'doit contenir au moins 6 caractères']
             ])
         ;
     }
