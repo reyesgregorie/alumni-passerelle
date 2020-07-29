@@ -79,7 +79,7 @@ class AdminGroupController extends AbstractController
     }
 
     /**
-     * @Route("admin/supresion-group/{id}",requirements={"id": "\d+"})
+     * @Route("admin/suppression-group/{id}", requirements={"id": "\d+"})
      */
     public function delete(Groups $groups,EntityManagerInterface $entityManager)
     {
@@ -91,5 +91,8 @@ class AdminGroupController extends AbstractController
     }
 
 }
+
+
+
 
 

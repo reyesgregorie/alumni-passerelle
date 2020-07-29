@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>modification </h1>
+    {{ form_start(form) }}
+
+
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+
+    <a href="{{ path('app_adminuser_index') }}" class="btn btn-outline-secondary">Retour</a>
+    {{ form_end(form) }}
+{% endblock %}

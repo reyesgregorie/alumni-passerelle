@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Groups;
 use App\Entity\Users;
 use App\Form\UserType;
 use App\Repository\UsersRepository;
@@ -9,6 +10,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\User;
 
 class AdminUserController extends AbstractController
 {
@@ -47,7 +49,7 @@ class AdminUserController extends AbstractController
         }
 
 
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class,$user);
 
         $form->handleRequest($request);
 
@@ -63,7 +65,7 @@ class AdminUserController extends AbstractController
         }
 
         return  $this->render(
-            'admin_user/index.html.twig',
+            'admin_user/edit.html.twig',
             [
                 'form' => $form->createView()
             ]
@@ -71,5 +73,17 @@ class AdminUserController extends AbstractController
 
 
     }
+
+    /**
+     * @Route("admin/suppression-user/{id}", requirements={"id": "\d+"})
+     */
+    public function delete(User $user, EntityManagerInterface $entityManager)
+    {
+        $entityManager->remove($user);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('app_adminuser_index');
+    }
+
 
 }

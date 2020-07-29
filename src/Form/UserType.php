@@ -3,12 +3,13 @@
 namespace App\Form;
 
 use App\Entity\Users;
-use Doctrine\DBAL\Types\TextType;
+use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use PhpParser\Node\Stmt\Label;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormTypeInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
@@ -17,7 +18,6 @@ class UserType extends AbstractType
     {
         $builder
             ->add('firstname',
-
                 TextType::class,
                 [
                     'label'=> 'firtname'

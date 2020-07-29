@@ -3,8 +3,9 @@
 {% block title %}Hello AdminArticleController!{% endblock %}
 
 {% block body %}
+    <h1> Modification</h1>
     <table class="table">
-{#        <p><a href="{{ path('app_adminuser_edit') }}" class="btn btn-primary"></a></p>#}
+
         <tr class="table table-striped table-dark">
             <th>Users</th>
             <th>Group</th>
@@ -18,11 +19,12 @@
                 <th>{{ user.lastname }}</th>
                 <th> {{ user.email('d/m/Y H:i') }}</th>
                 <th>
-                   <a href="{{ path('app_adminuser_edit',{'id': user.id}) }}"
+                   <a href="{{ path('app_adminuser_edit', {'id': user.id}) }}"
                       class="btn btn-primary">Modifier</a>
 
-                   <a href="{{ path('app_index_index',{'id': user.id}) }}"
+                   <a href="{{ path('app_adminuser_delete', {'id': user.id}) }}"
                        class="btn btn-danger">Supprimer</a>
+
                 </th>
             </tr>
 
