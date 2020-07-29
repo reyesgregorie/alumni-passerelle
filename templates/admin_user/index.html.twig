@@ -4,16 +4,17 @@
 
 {% block body %}
     <h1> Modification</h1>
-    <table class="table">
+    <table class="table table-dark">
 
-        <tr class="table table-striped table-dark">
-            <th>Users</th>
-            <th>Group</th>
-            <th>Events</th>
+        <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Email</th>
             <th width="250px"></th>
         </tr>
         {% for user in users %}
-            <tr class="table table-striped table-dark">
+            <tr>
                 <th>{{ user.id }}</th>
                 <th>{{ user.firstname }}</th>
                 <th>{{ user.lastname }}</th>
