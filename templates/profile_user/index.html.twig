@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Mon Profil {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="card my-5">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{app.user.firstname}} {{app.user.lastname}} | {{ app.user.promotion }}</h5>
+                <p class="card-text"><small class="text-muted">Profil créé le {{ app.user.dateCreate|date('d/m/Y H:i') }}</small></p>
+                <p class="card-text">Adresse mail: {{ app.user.email }}</p>
+                <p class="card-text">Ville: {{ app.user.city }}</p>
+                <p class="card-text">Expérience avant formation: {{ app.user.experiences }}</p>
+                {% if app.user.actual == true %}
+                    <p class="card-text">Entreprise actuelle: {{ app.user.companyname }}</p>
+                {% endif %}
+                <p class="card-text"><a href="{{ 'https://www.' ~ app.user.urllinkedin }}"></a><i class="fab fa-linkedin fa-2x"></i> : {{ app.user.urllinkedin }}</p>
+                <p class="card-text"><a href="{{ 'https://www.' ~ app.user.urlportfolio }}">Portfolio</a> : {{ app.user.urlportfolio }}</p>
+                <p class="card-text"><small class="text-muted">Dernière modification {{ app.user.dateUpdate|date('d/m/Y H:i') }}</small></p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

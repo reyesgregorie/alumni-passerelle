@@ -38,9 +38,9 @@ class RegistrationFormType extends AbstractType
                 'placeholder' => 'Choisissez une promotion',
                 'choices' =>
                     [
-                        'Aurora' => 'aurora',
-                        'Polaris' => 'polaris',
-                        'Zéphyr' => 'zéphyr'
+                        'Aurora' => 'Aurora',
+                        'Polaris' => 'Polaris',
+                        'Zéphyr' => 'Zéphyr'
                     ]
             ]
             )
