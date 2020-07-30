@@ -13,15 +13,21 @@ class GroupType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',
-                TextType::class,
+            ->add('name',TextType::class,
                 [
-                    'label'=> 'name'
+                    'label'=> 'Nom du groupe'
                 ]
-
-
             )
-            ->add('tag')
+            ->add('tag', TextType::class,
+                [
+                    'label' => 'Tags'
+                ]
+            )
+            /*->add('author', TextType::class,
+                [
+                    'label' => 'Auteur'
+                ]
+            )*/
             ->add('parent')
 
         ;

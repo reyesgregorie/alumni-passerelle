@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Users;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use \Symfony\Component\Form\Extension\Core\Type\TextType;
 use PhpParser\Node\Stmt\Label;
 use Symfony\Component\Form\AbstractType;
@@ -20,90 +22,46 @@ class UserType extends AbstractType
             ->add('firstname',
                 TextType::class,
                 [
-                    'label'=> 'firtname'
-                ]
-
-
-
-            )
+                    'label'=> 'Prénom'
+                ])
             ->add('lastname',
                 TextType::class,
                 [
-                    'label'=> 'lastname'
-                ]
-
-
-
-            )
-            ->add('role')
-
+                    'label'=> 'Nom',
+                ])
+            ->add('role', ChoiceType::class,
+                [
+                    'placeholder'=>'Choisissez un rôle',
+                    'choices'=>
+                        [
+                            'Admin' => 'ROLE_ADMIN',
+                            'Étudiant' => 'ROLE_USER',
+                            'Alumni' => 'ROLE_USER',
+                            'Staff' => 'ROLE_ADMIN',
+                            'Formateur' => 'ROLE_USER'
+                        ]
+                ])
+            ->add('promotion', ChoiceType::class,
+                [
+                    'placeholder'=>'Choisissez une promotion',
+                    'choices'=>
+                        [
+                            'Aurora' => 'Aurora',
+                            'Polaris' => 'Polaris',
+                            'Zéphyr' => 'Zéphyr'
+                        ]
+                ])
             ->add('city',
                 TextType::class,
                 [
-                    'label'=> 'role'
-                ]
-
-
-
-            )
+                    'label'=> 'Ville'
+                ])
             ->add('email',
                 EmailType::class,
                 [
-                    'label'=>'Email '
-                ]
-
-
-
-
-            )
-
-
-            ->add('urlphoto')
+                    'label'=>'Email'
+                ])
             ->add('urlavatar')
-
-
-            ->add('promotion',
-                TextType::class,
-                [
-                    'label'=>'promotion'
-                ]
-
-
-
-
-
-
-
-            )
-
-
-            ->add('experiences',
-                TextareaType::class,
-                [
-                    'label'=> 'experiences'
-                ]
-
-
-            )
-            ->add('actual')
-
-            ->add('bio',
-                TextareaType::class,
-                [
-                    'label'=>'contenu'
-                ]
-
-
-
-            )
-            ->add('companyname')
-            ->add('urllinkedin')
-            ->add('urlportfolio')
-            ->add('password')
-            ->add('dateCreate')
-            ->add('dateUpdate')
-            ->add('event')
-            ->add('group')
         ;
     }
 
