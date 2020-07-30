@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-use App\Entity\Groups;
+
 use App\Entity\Users;
 use App\Form\UserType;
 use App\Repository\UsersRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -48,18 +49,20 @@ class AdminUserController extends AbstractController
             $user = $usersRepository->find($id);
         }
 
+        // création du formulaire lié a l'entitie Category
 
         $form = $this->createForm(UserType::class,$user);
-
+        // traitement de la requête par le formulaire
         $form->handleRequest($request);
-
+        // si la form été envoyé
         if($form->isSubmitted())
         {
+            // si la validation des annotation @Assert dans l'entité passe
             if($form->isValid())
-            {
+            {//enregistrement de la catégorie de bdd
                 $entityManager->persist($user);
                 $entityManager->flush();
-
+                //redirection vers la list
                 return $this->redirectToRoute('app_adminuser_index');
             }
         }
@@ -67,6 +70,7 @@ class AdminUserController extends AbstractController
         return  $this->render(
             'admin_user/edit.html.twig',
             [
+                // passage du form au template
                 'form' => $form->createView()
             ]
         );
@@ -74,15 +78,30 @@ class AdminUserController extends AbstractController
 
     }
 
+//    /**
+//     * @Route("/delete/{id}",name="product_delete")
+//     */
+//    public function delete(product $product)
+//    {
+//      $em = $this->getDoctrine()->getManagers();
+//      $em->remove($product);
+//      $em->flush();
+//
+//
+//
+//       return $this->redirectToRoute('product_delete');
+//
+//    }
     /**
-     * @Route("admin/suppression-user/{id}", requirements={"id": "\d+"})
+     * @Route("admin/suppression-user/{id}",name="product_delete")
      */
-    public function delete(User $user, EntityManagerInterface $entityManager)
+    public function delete(User $user,EntityManagerInterface $entityManager)
     {
         $entityManager->remove($user);
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_adminuser_index');
+        return $this->redirectToRoute('product_delete');
+
     }
 
 
