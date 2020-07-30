@@ -78,6 +78,56 @@ class AdminGroupController extends AbstractController
 
     }
 
+
+    /**
+     * @Route("admin/creation-group/{id}",defaults={"id": null}, requirements={"id": "\d+"})
+     */
+
+public function create(
+    $id,
+    GroupsRepository $groupsRepository,
+    Request $request,EntityManagerInterface $entityManager)
+    {
+        if (is_null($id))
+        {
+            $groups = new Groups();
+            $groups
+                ->setDate(new \DateTime())
+//                ->setAuthor($this->getUser())
+            ;
+        }
+        else
+        {
+            $groups = $groupsRepository->find($id);
+        }
+        $form = $this->createForm(GroupType::class, $groups);
+        $form->handleRequest($request);
+
+        if($form->isSubmitted())
+        {
+            if ($form->isValid())
+            {
+                $entityManager->persist($groups);
+                $entityManager->flush();
+
+
+                return $this->redirectToRoute('app_admingroup_index');
+            }
+
+        }
+        return $this->render(
+            'admin_group/creation.html.twig',
+            [
+                'form' => $form->createView()
+            ]
+        );
+
+
+
+    }
+
+
+
     /**
      * @Route("admin/suppression-group/{id}", requirements={"id": "\d+"})
      */

@@ -4,7 +4,8 @@
 
 {% block body %}
 <h1> Groups</h1>
-
+    <a href="{{ path('app_admingroup_create') }}"
+       class="btn btn-primary">creation group</a>
 
 <table class="table table-dark">
     <tr>
@@ -18,7 +19,7 @@
             <tr>
                 <td>{{ group.name }}</td>
                  <td>{{ group.author }}</td>
-                     <td>{{ group.date.format('d/m/Y H:i') }}</td>
+                     <td>{{ group.date|date('d/m/Y H:i') }}</td>
                          <td>{{ group.tag }}</td>
 
                     <td>
