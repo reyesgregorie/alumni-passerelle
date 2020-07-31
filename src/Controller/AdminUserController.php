@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-
 use App\Entity\Users;
 use App\Form\UserType;
 use App\Repository\UsersRepository;
@@ -42,7 +41,6 @@ class AdminUserController extends AbstractController
         if(is_null($id)) // création
         {
             $user = new Users();
-            $user->setPublicationDate(new \DateTime());
         }
         else // modification
         {
@@ -74,33 +72,17 @@ class AdminUserController extends AbstractController
                 'form' => $form->createView()
             ]
         );
-
-
     }
 
-//    /**
-//     * @Route("/delete/{id}",name="product_delete")
-//     */
-//    public function delete(product $product)
-//    {
-//      $em = $this->getDoctrine()->getManagers();
-//      $em->remove($product);
-//      $em->flush();
-//
-//
-//
-//       return $this->redirectToRoute('product_delete');
-//
-//    }
     /**
-     * @Route("admin/suppression-user/{id}",name="product_delete")
+     * @Route("admin/user/delete{id}", requirements={"id": "\d+"})
      */
-    public function delete(User $user,EntityManagerInterface $entityManager)
+    public function delete(Users $users,EntityManagerInterface $entityManager)
     {
-        $entityManager->remove($user);
+        $entityManager->remove($users);
         $entityManager->flush();
 
-        return $this->redirectToRoute('product_delete');
+        return $this->redirectToRoute('app_adminuser_index');
 
     }
 

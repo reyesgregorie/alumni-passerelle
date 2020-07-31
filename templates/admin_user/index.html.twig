@@ -3,36 +3,43 @@
 {% block title %}Hello Admin!{% endblock %}
 
 {% block body %}
-    <h1> Modification</h1>
+    <h1 class="text-center my-5">Gestion des Utilisateurs </h1>
+    <div class="text-center">
+        <a href="{{ path('app_registration_register') }}"
+           class="btn btn-primary my-3">Ajouter</a>
+    </div>
     <table class="table table-dark">
-
         <tr>
-            <th>ID</th>
+            <th>Photo</th>
             <th>Prénom</th>
             <th>Nom</th>
+            <th>Promotion</th>
+            <th>Rôle</th>
             <th>Email</th>
-            <th width="250px"></th>
+            <th>Ville</th>
+            <th>Date de création</th>
+            <th>Date de modification</th>
         </tr>
         {% for user in users %}
             <tr>
-                <th>{{ user.id }}</th>
+                <th>{{ user.urlavatar }}</th>
                 <th>{{ user.firstname }}</th>
                 <th>{{ user.lastname }}</th>
-                <th> {{ user.email('d/m/Y H:i') }}</th>
+                <th>{{ user.promotion }}</th>
+                <th>{{ user.role }}</th>
+                <th>{{ user.email }}</th>
+                <th>{{ user.city }}</th>
+                <th>{{ user.dateCreate|date("d/m/Y H:i") }}</th>
+                <th>{{ user.dateUpdate|date("d/m/Y H:i") }}</th>
+                <th></th>
                 <th>
-                   <a href="{{ path('app_adminuser_edit', {'id': user.id}) }}"
-                      class="btn btn-primary">Modifier</a>
-
-                   <a href="{{ path('product_delete', {'id': user.id}) }}"
-                       class="btn btn-danger">Supprimer</a>
-
+                   <a href="{{ path('app_adminuser_edit', {'id': user.id}) }}" class="btn btn-primary"><i class="far fa-edit fa-2x"></i></a>
+                </th>
+                <th>
+                   <a href="{{ path('app_adminuser_delete', {'id': user.id}) }}" class="btn btn-danger"><i class="far fa-trash-alt fa-2x"></i></a>
                 </th>
             </tr>
-
-
         {% endfor %}
-
-
     </table>
 
 {% endblock %}
