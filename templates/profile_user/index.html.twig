@@ -12,7 +12,7 @@
                 </div>#}
                 <h5 class="card-title">{{app.user.firstname}} {{app.user.lastname}} | {{ app.user.promotion }}</h5>
                 <p class="card-text"><small class="text-muted">Profil créé le {{ app.user.dateCreate|date('d/m/Y H:i') }}</small></p>
-                <p class="card-text">Adresse mail: {{ app.user.email }}</p>
+                <p class="card-text">Courriel: {{ app.user.email }}</p>
                 <p class="card-text">Ville: {{ app.user.city }}</p>
                 <p class="card-text">Expérience avant formation: {{ app.user.experiences }}</p>
                 {% if app.user.actual == true %}
