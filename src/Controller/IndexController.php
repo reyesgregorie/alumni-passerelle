@@ -19,4 +19,8 @@ class IndexController extends AbstractController
             'controller_name' => 'IndexController',
         ]);
     }
+
+    public function search(){
+
+    }
 }

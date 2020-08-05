@@ -3,8 +3,10 @@
 {% block title %} Mon Profil {% endblock %}
 
 {% block body %}
+
     <div class="container">
         <div class="card my-5">
+
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
                 {#<div class="my-3">
@@ -21,7 +23,9 @@
                 <p class="card-text"><a href="{{ 'https://www.' ~ app.user.urllinkedin }}"></a><i class="fab fa-linkedin fa-2x"></i> : {{ app.user.urllinkedin }}</p>
                 <p class="card-text"><a href="{{ 'https://www.' ~ app.user.urlportfolio }}">Portfolio</a> : {{ app.user.urlportfolio }}</p>
                 <p class="card-text"><small class="text-muted">Dernière modification {{ app.user.dateUpdate|date('d/m/Y H:i') }}</small></p>
+                <a href="{{ path('app_profileuser_edit') }}" class="btn btn-outline-secondary">edit profil</a>
             </div>
         </div>
     </div>
+
 {% endblock %}

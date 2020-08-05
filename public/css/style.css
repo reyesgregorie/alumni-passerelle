@@ -1,20 +1,345 @@
-*{
-    box-sizing: border-box;
-    margin: 0 auto;
+/*****************************************************/
+/*******       Style (de base)              **********/
+/*****************************************************/
+hr{
+top: 678px;
+left: 15px;
+width: 342px;
+border: 10px solid var(--unnamed-color-071033);
+border: 10px solid #071033;
+opacity: 1;
+height: 1px;
+margin: -0.5em 0;
+padding: 0;
+border-radius: 5px;
 }
-body {
-    padding: 0;
-    font-family: sans-serif;
-    background: white;
+
+.bt-modif-profil img{
+    position: absolute;
+    bottom: 15%;
+    right: 15%;
+    width: 20%;
 }
-/**************  PAGE CONNEXION *****************/
+
+.uploadPhoto {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: none;
+    width: 50%;
+    height: 50%;
+    color: #fff;    
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;    
+    background-color: rgba(0,0,0,.3);
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.col-time{
+    text-align: right;
+    border-radius: 10px;
+}
+
+article{
+    background-color: right;
+    border-radius: 10px;
+}
+
+/*****************************************************/
+/*******       search                       **********/
+/*****************************************************/
+
+article.post{
+    background-color: white;
+} 
+section { 
+    background-color: white;
+}
+
+/*****************************************************/
+/*******       post                         **********/
+/*****************************************************/
+
+.post .col-time { 
+    text-align: right;
+}
+
+#reponse {
+    border-radius: 10px;
+}
+.panel-footer .btn {
+    color:#071033;
+}
+
+/*****************************************************/
+/*******       menu                         **********/
+/*****************************************************/
+
+.navbar {
+    background-color:#071033 !important;
+}
+
+header .fas {
+    color: white;
+}
+
+.dropdown-menu {
+    background-color: #071033;
+
+}
+
+.dropdown-menu a {
+    color: white;
+}
+
+header .badge {
+    background-color: #EA2831;
+}
+
+/*****************************************************/
+/*******     mdp_oublie                     **********/
+/*****************************************************/
+
+button{
+    margin-top: 60px;
+    position: relative;
+}
+
+h2{
+    text-align: center;
+    margin-top: 50px;
+}
+
+p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+input {
+    margin-top: 50px;
+    position: relative;
+} 
+
+.fas {
+    color: #071033;
+}
+
+/*****************************************************/
+/*******     general                        **********/
+/*****************************************************/
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
+
+
+h1, h2, h3, h4, p, label
+{
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+h2,  h3, p, label
+{
+    color: #071033; 
+}
+h1 
+{
+    color: #071033; ;
+    font-weight: bolder;
+    font-size: 28px;
+    text-align: center;
+}
+p {
+    font-size: 16px;
+}
+h2{
+    font-size: 25px;
+    font-weight: bold;
+}
+label { font-size: 25px; font-weight: bold;
+
+}
+.btn-primary{ 
+    background-color: #071033;
+    color: white;
+    border: 1px solid #071033;
+}
+
+.btn-secondary{ 
+    background-color: #ffffff;
+    border: 2px solid #071033;
+    color:#071033;
+}
+
+.btn-eventoff{ 
+    background-color: #e4e4e4;
+    color:black;
+    
+}
+/* commentaire : boutton on [ bleu] off [ gris]*/
+.btn-eventon{ 
+    background-color: #007AFF;
+    color:white;
+    
+}
+body { background-color: #F0F7FD;}
+
+
+#bt-plus {
+    display: block;
+    width: 100px;
+    height: 100px;
+    
+    position: fixed;
+    z-index: 10;
+    bottom: 50px;
+    right: 10px;
+    filter: drop-shadow(5px 5px 5px);
+}
+
+.tags-list .badge a {
+    color:white;
+}
+.tags-list .badge a:hover {
+    text-decoration: none;
+}
+hr {
+    width: 100%;
+}
+.message a {
+    color: #071033;
+}
+a:link{
+    text-decoration: none;
+}
+
+/*****************************************************/
+/*******     event                          **********/
+/*****************************************************/
+
+.location{
+    text-align: left;
+}
+img style {
+    height: 100px;
+}
+
+
+img.card-img-top {
+    width: 100%;  
+    height: 150px;
+    object-fit: cover;
+}
+
+body .date {
+    color: #EA2831;
+}
+
+/*****************************************************/
+/*******     event_com                      **********/
+/*****************************************************/
+
+article {
+    background-color: white;
+    border-radius: 10px;
+}
+
+section {
+    background-color: white;
+}
+
+body .date {
+    color: #EA2831;
+}
+
+#accordionExample { 
+    border-radius: 10px;
+}
+
+img.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post .col-time { 
+      text-align: right;
+}
+
+.card .btncom {
+        color:#071033;
+    
+}
+
+/*****************************************************/
+/*******     evenement                      **********/
+/*****************************************************/
+
+label {
+    display: block;
+
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+label {
+    display: block;
+    
+}
+
+input,
+label {
+    margin: .4rem 0;
+}
+
+/*****************************************************/
+/*******     email_envoye                   **********/
+/*****************************************************/
+
+button{
+    margin-top: 60px;
+    position: relative;
+}
+
+h2{
+    text-align: center;
+
+}
+
+p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-control{
+    margin-top: 50px;
+    position: relative;
+
+}
+
+.ok .fas{
+    color: green;
+}
+
+/*****************************************************/
+/*******     creation_post                  **********/
+/*****************************************************/
+
+/*****************************************************/
+/*******     connexion                   **********/
+/*****************************************************/
+
 #logo {
     margin:0 auto;
 }
 
 h2 {
-    text-align: center;
-    margin-top: 20px;
+text-align: center;
+margin-top: 20px;
+
 }
 
 /*
@@ -39,135 +364,17 @@ h2 {
     color: #ffffff;
 }
 
-/***************************************************/
-.box {
-    width: 500px;
-    padding: 40px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: #191919;
-;
+/*****************************************************/
+/*******     bienvenue                      **********/
+/*****************************************************/
+
+h2{
     text-align: center;
-    transition: 0.25s;
-    margin-top: 100px
+    margin-top: 40px;
+    
 }
-
-.box input[type="text"],
-.box input[type="password"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #3498db;
-    padding: 10px 10px;
-    width: 250px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s
-}
-
-.box h1 {
-    color: white;
-    text-transform: uppercase;
-    font-weight: 500
-}
-
-.box input[type="text"]:focus,
-.box input[type="password"]:focus {
-    width: 300px;
-    border-color: #2ecc71
-}
-
-.box input[type="submit"] {
-    border: 0;
-    background: none;
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    border: 2px solid #2ecc71;
-    padding: 14px 40px;
-    outline: none;
-    color: white;
-    border-radius: 24px;
-    transition: 0.25s;
-    cursor: pointer
-}
-
-.box input[type="submit"]:hover {
-    background: #2ecc71
-}
-
-.card{
-    background-color: transparent;
-}
-
-.forgot {
-    text-decoration: underline
-}
-
-ul.social-network {
-    list-style: none;
-    display: inline;
-    margin-left: 0 !important;
-    padding: 0
-}
-
-ul.social-network li {
-    display: inline;
-    margin: 0 5px
-}
-
-.social-network a.icoFacebook:hover {
-    background-color: #3B5998
-}
-
-.social-network a.icoTwitter:hover {
-    background-color: #33ccff
-}
-
-.social-network a.icoGoogle:hover {
-    background-color: #BD3518
-}
-
-.social-network a.icoFacebook:hover i,
-.social-network a.icoTwitter:hover i,
-.social-network a.icoGoogle:hover i {
-    color: #fff
-}
-
-a.socialIcon:hover,
-.socialHoverClass {
-    color: #44BCDD
-}
-
-.social-circle li a {
-    display: inline-block;
-    position: relative;
-    margin: 0 auto 0 auto;
-    border-radius: 50%;
-    text-align: center;
-    width: 50px;
-    height: 50px;
-    font-size: 20px
-}
-
-.social-circle li i {
-    margin: 0;
-    line-height: 50px;
-    text-align: center
-}
-
-.social-circle li a:hover i,
-.triggeredHover {
-    transform: rotate(360deg);
-    transition: all 0.2s
-}
-
-.social-circle i {
-    color: #fff;
-    transition: all 0.8s;
-    transition: all 0.8s
+#logo {
+    margin: auto;
+    width: 350px;
+    height: 350px;
 }
