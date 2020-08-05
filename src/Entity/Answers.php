@@ -36,6 +36,30 @@ class Answers
     private $date;
 
     /**
+     * @return string
+     */
+    public function getTag(): string
+    {
+        return $this->tag;
+    }
+
+    /**
+     * @param string $tag
+     * @return Answers
+     */
+    public function setTag(string $tag): Answers
+    {
+        $this->tag = $tag;
+        return $this;
+    }
+
+    /**
+     * @var string
+     * @ORM\Column(name="tag", type="string", length=100, nullable=false)
+     */
+    private $tag;
+
+    /**
      * @var \Questions
      *
      * @ORM\ManyToOne(targetEntity="Questions")

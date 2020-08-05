@@ -7,7 +7,39 @@ body {
     font-family: sans-serif;
     background: white;
 }
+/**************  PAGE CONNEXION *****************/
+#logo {
+    margin:0 auto;
+}
 
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*
+*  BOUTONS DES RESEAUX SOCIAUX
+*
+* Note au chef : on pourrait mettre dans general.css
+*/
+#reseaux button.btn-outline-primary{
+    border-color: #071033;
+}
+
+#reseaux button.btn-outline-primary .fab {
+    color: #071033;
+}
+
+#reseaux button.btn-outline-primary:hover{
+    background-color: #071033;
+    border-color: #071033;
+}
+
+#reseaux button.btn-outline-primary:hover .fab {
+    color: #ffffff;
+}
+
+/***************************************************/
 .box {
     width: 500px;
     padding: 40px;
