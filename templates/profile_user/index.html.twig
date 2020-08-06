@@ -7,33 +7,35 @@
     {% block css %}
         <link rel="stylesheet" href="{{ asset('') }}">
     {% endblock %}
-{% block title %} Mon Profil {% endblock %}
+{% block title %} {{app.user.firstname}} {{app.user.lastname}} {% endblock %}
 
 {% block body %}
 
     <div class="container">
 
-
         <div class="row">
+            {% for message in app.flashes('message') %}
+                <div class="col-md-12">
+                    <div class="alert alert-success" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
             <div id="profil-block" class="col-6 offset-3 col-md-4 offset-md-4  col-xl-2 offset-xl-5">
                 <img src="img/photo_profil1.png" alt="Voir mon profil" class="img-fluid">
             </div>
         </div>
-
-
 
         <div class="row">
             <div class="text-center col-12">
                 <h5 class="card-title">{{app.user.firstname}} {{app.user.lastname}} |
                     {{ app.user.promotion }}
                 </h5>
-                <p class="card-text">Ville:{{ app.user.city }}</p>
+                <p class="card-text">Ville: {{ app.user.city }}</p>
                 <a href="#" ><img src="img/Tracé 50.png" alt="mail">  {{ app.user.email }} </a>
                 {% if app.user.actual == true %}
-                    <p class="card-text">Entreprise actuelle: {{ app.user.companyname }}</p>
+                    <p class="card-text">En poste actuellement: {{ app.user.companyname }}</p>
                 {% endif %}
-
-
             </div>
         </div>
 
@@ -41,34 +43,28 @@
             <div class="text-center col-12">
                 <article class="card-body post shadow p-3 mb-1 bg-white mt-4">
                     <p class="card-text">Expérience avant formation: {{ app.user.experiences }}</p>
-
-
                     <p class="card-text"><small class="text-muted">Dernière modification {{ app.user.dateUpdate|date('d/m/Y H:i') }}</small></p>
-
-                    <a href="{{ path('app_profileuser_edit') }}" class="btn btn-outline-secondary">edit profil</a>
+                    <a href="{{ path('app_profileuser_edit') }}" class="btn btn-primary">Modifier mon profil</a>
+                    <a href="{{ path('app_profileuser_editpass') }}" class="btn btn-warning">Modifier mon mot de passe</a>
                 </article>
 
                 <div class="row message">
                     <div class="col-6 offset-3">
-                        <a href="{{ path('app_profileuser_edit') }}"><button class="btn btn-secondary btn-block mt-4">
+                        <a href=""><button class="btn btn-secondary btn-block mt-4">
                                 Messages
-                                <a href="{{ path('app_profileuser_edit') }}"><img class="pl-2" src="img/Icon ionic-ios-chatbubbles.png" alt="message"></a>
+                                <a href=""><img class="pl-2" src="img/Icon ionic-ios-chatbubbles.png" alt="message"></a>
                             </button>
                         </a>
                     </div>
-
                 </div>
-
             </div>
         </div>
 
-        <div class="col-12 col-md-4">
-            <article class="mt-4">
-                <div class="row">
-
-
+        <div class="col-12">
+            <article class="mt-4 d-flex justify-content-center">
+                <div class="row text-center">
                     <div class="col-12 ">
-                        <a href="{{ 'https://www.' ~ app.user.urllinkedin }}" ><img src="img/Icon awesome-linkedin.png " alt="linkedin">  Mon Linkedin</a>
+                        <a href="{{ app.user.urllinkedin }}" ><img src="img/Icon awesome-linkedin.png " alt="linkedin">  Mon Linkedin</a>
                         <hr>
                     </div>
                     <div class="col-12 ">

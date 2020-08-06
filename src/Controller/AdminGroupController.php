@@ -27,7 +27,7 @@ class AdminGroupController extends AbstractController
 
     /**
      *
-     * @Route("/admin/groups/edition/{id}",defaults={"id": null},requirements={"id": "\d+"})
+     * @Route("/admin/groups/edition/{id}", defaults={"id": null}, requirements={"id": "\d+"})
      */
     public  function edit(
         $id,

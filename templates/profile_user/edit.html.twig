@@ -1,23 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1 class="text-center my-5">Modification du du profile </h1>
+    <h1 class="text-center my-5">Modification du Profil</h1>
     {{ form_start(form) }}
-    {{ form_row(form.lastname) }}
-    {{ form_row(form.firstname) }}
 
-    {{ form_row(form.urlavatar) }}
+        {{ form_row(form.urlavatar) }}
+        {{ form_row(form.urlphoto) }}
 
+        {{ form_row(form.firstname) }}
+        {{ form_row(form.lastname) }}
 
+        {{ form_row(form.email) }}
+        {{ form_row(form.city) }}
 
-    {{ form_row(form.email) }}
-    {{ form_row(form.city) }}
+        {{ form_row(form.experiences) }}
+        {{ form_row(form.actual) }}
+        {{ form_row(form.companyname) }}
 
-    {{ form_row(form.bio) }}
-    {{ form_row(form.experiences) }}
-    {{ form_row(form.actual) }}
+        {{ form_row(form.bio) }}
+        {{ form_row(form.urllinkedin) }}
+        {{ form_row(form.urlportfolio) }}
 
-    <button type="submit" class="btn btn-primary">Enregistrer</button>
-    <a href="{{ path('app_adminuser_index') }}" class="btn btn-outline-secondary">Retour</a>
     {{ form_end(form) }}
+    <a href="{{ path('app_adminuser_index') }}" class="btn btn-danger">Annuler</a>
 {% endblock %}
