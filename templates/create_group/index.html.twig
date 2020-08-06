@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salut Moussaillon!{% endblock %}
+    {% block css %}
+        <link rel="stylesheet" href="{{ asset('css/salons.css') }}">
+    {% endblock %}
+{% block body %}
+
+
+    <div class="container">
+
+        <h1>Créer un salon</h1>
+
+
+        <form action="">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="tittle">Titre<span>:</span></label>
+                        <input type="text" class="form-control" name="Titre" required/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="description">Description :</label>
+                        <p class="text-muted">(facultatif)</p>
+                        <textarea rows="5" class="form-control" name="description" ></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <p><span class="require">*</span> - champs obligatoire</p>
+            </div>
+            <div class="row">
+                <div class="col-6">
+
+                    <button type="submit" class="btn btn-block btn-primary">
+                        Créer
+                    </button>
+                </div>
+                <div class="col-6">
+                    <a href="post.html" class="btn btn-block btn-secondary">
+                        Annuler
+                    </a>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+{% endblock %}

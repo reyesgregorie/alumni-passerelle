@@ -1,0 +1,23 @@
+button{
+margin-top: 60px;
+position: relative;
+}
+
+h2{
+    text-align: center;
+
+}
+p{
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+.form-control{
+    margin-top: 50px;
+    position: relative;
+
+}
+.ok .fas{
+    color: green;
+}
