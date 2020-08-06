@@ -39,9 +39,8 @@ class AdminGroupController extends AbstractController
         {
             $groups = new Groups();
             $groups
-                ->setDate(new \DateTime())
-                //->setAuthor($this->getUser())
-            ;
+                ->setDate(new \DateTime());
+                //->setAuthor($this->getUser()) ;
         }
         else
         {

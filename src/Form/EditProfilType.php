@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Users;
-use Doctrine\DBAL\Types\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -24,7 +26,7 @@ class EditProfilType extends AbstractType
                 [
                 'label' => 'nom'
                 ])
-            ->add('role')
+
 
             ->add('city',
                 TextType::class,
@@ -32,28 +34,30 @@ class EditProfilType extends AbstractType
                 'label' => 'ville'
                 ])
             ->add('email',
-                TextType::class,
+                EmailType::class,
                 [
                     'label' => 'email'
                 ])
-            ->add('urlphoto',
 
-                [
-
-                ])
+            ->add('urlphoto')
             ->add('urlavatar')
-            ->add('promotion')
+
+
+
             ->add('experiences')
             ->add('actual')
-            ->add('bio')
+
+
+            ->add('bio',
+                TextType::class,
+                [
+                    'label' => 'bio'
+
+                 ])
             ->add('companyname')
             ->add('urllinkedin')
             ->add('urlportfolio')
-            ->add('password')
-            ->add('dateCreate')
-            ->add('dateUpdate')
-            ->add('event')
-            ->add('group')
+
         ;
     }
 

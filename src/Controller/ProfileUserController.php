@@ -25,12 +25,7 @@ class ProfileUserController extends AbstractController
     }
 
     /**
-     * @Route("/admin/profil_user/edition{id}",defaults={"id":null})
-     * @param $id
-     * @param UsersRepository $usersRepository
-     * @param Request $request
-     * @param EntityManagerInterface $entityManager
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @Route("/user/edition/{id}",defaults={"id": null},requirements={"id": "\d+"})
      */
 
     public function edit($id,
@@ -42,14 +37,16 @@ class ProfileUserController extends AbstractController
         if (is_null($id))
         {
             $user = new Users();
-        }else
+
+        }
+        else
             {
                 $user = $usersRepository->find($id);
 
              }
 
 
-        $form = $this->redirectToRoute(EditProfilType::class,$user);
+        $form = $this->createForm(EditProfilType::class,$user);
 
         $form->handleRequest($request);
 
@@ -60,15 +57,15 @@ class ProfileUserController extends AbstractController
 
                 $entityManager->persist($user);
                 $entityManager->flush();
-
                 return $this->redirectToRoute('app_adminuser_index');
             }
 
         }
 
-        return  $this->render('profile_user/edit.html.twig',
+        return  $this->render(
+            'profile_user/edit.html.twig',
             [
-                'form' => $this->createView()
+                'form' => $form->createView()
 
             ]
 
@@ -78,4 +75,10 @@ class ProfileUserController extends AbstractController
 
 
     }
+
+
+
+
+
+
 }
