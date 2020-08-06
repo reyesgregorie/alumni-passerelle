@@ -18,11 +18,29 @@ class EditProfilType extends AbstractType
                 [
                 'label' => 'prénom'
                 ])
-            ->add('lastname')
+
+            ->add('lastname',
+                TextType::class,
+                [
+                'label' => 'nom'
+                ])
             ->add('role')
-            ->add('city')
-            ->add('email')
-            ->add('urlphoto')
+
+            ->add('city',
+                TextType::class,
+                [
+                'label' => 'ville'
+                ])
+            ->add('email',
+                TextType::class,
+                [
+                    'label' => 'email'
+                ])
+            ->add('urlphoto',
+
+                [
+
+                ])
             ->add('urlavatar')
             ->add('promotion')
             ->add('experiences')

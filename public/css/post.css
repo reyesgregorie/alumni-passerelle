@@ -1,0 +1,19 @@
+article.post{
+    background-color: white;
+} 
+.post .col-time { text-align: right;
+
+}
+section { 
+    background-color: white;
+}
+article {
+     border-radius: 10px;
+}
+#reponse {
+    border-radius: 10px;
+}
+.panel-footer .btn {
+    color:#071033;
+
+}
