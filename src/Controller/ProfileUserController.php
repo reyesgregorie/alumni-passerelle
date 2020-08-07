@@ -69,6 +69,12 @@ class ProfileUserController extends AbstractController
 
             if ($request->request->get('password1') == $request->request->get('password2')){
 
+                $user->setPassword($passwordEncoder->encodePassword($user, $request->request->get('password1')));
+                $em->flush();
+
+                $this->addFlash('message', 'Mot de passe modifié!');
+
+                return $this->redirectToRoute('app_profileuser_index');
             }else{
                 $this->addFlash('error', 'Les deux mots de passe ne sont pas identiques!');
             }

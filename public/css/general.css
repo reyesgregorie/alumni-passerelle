@@ -1,36 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700;800;900&display=swap');
 
-h1, h2, h3, h4, p, label {
-    font-family: 'Nunito Sans', sans-serif;
-}
 
-h2,  h3, p, label {
+h1, h2, h3, h4, p, label
+{
+    font-family: 'Nunito Sans', sans-serif;
+    
+}
+h2,  h3, p, label
+{
     color: #071033; 
 }
-
-h1 {
+h1 
+{
     color: #071033; ;
     font-weight: bolder;
     font-size: 28px;
     text-align: center;
 }
-
 p {
     font-size: 16px;
 }
-
 h2{
     font-size: 25px;
     font-weight: bold;
 }
+label { font-size: 25px; font-weight: bold;
 
-label{
-    font-size: 25px; font-weight: bold;
 }
+
 
 .btn-primary{ 
     background-color: #071033;
-    color: white;
+    color: white!important;
     border: 1px solid #071033;
 }
 
@@ -40,20 +41,25 @@ label{
     color:#071033;
 }
 
+.btn-secondary:hover{ 
+    background-color: #007AFF;
+    border: 2px solid #007AFF;
+    color:white!important;
+}
+
 .btn-eventoff{ 
     background-color: #e4e4e4;
-    color: black;
+    color:black;
     
 }
 /* commentaire : boutton on [ bleu] off [ gris]*/
 .btn-eventon{ 
     background-color: #007AFF;
-    color: white;
+    color:white;
+    
 }
+body { background-color: #F0F7FD;}
 
-body {
-    background-color: #F0F7FD;
-}
 
 #bt-plus {
     display: block;
@@ -68,7 +74,7 @@ body {
 }
 
 .tags-list .badge a {
-    color: white;
+    color:white;
 }
 .tags-list .badge a:hover {
     text-decoration: none;

@@ -5,7 +5,13 @@
 {% block body %}
 
     <h1>Modifier Mon Mot de Passe</h1>
-
+    {% for message in app.flashes('error') %}
+        <div class="col-md-12">
+            <div class="alert alert-danger" role="alert">
+                {{ message }}
+            </div>
+        </div>
+    {% endfor %}
     <form method="post">
         <div class="form-group">
             <label for="password1">Mot de passe</label>
