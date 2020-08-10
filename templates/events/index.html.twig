@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ asset('css/event.css') }}">
+{% endblock %}
+
+{% block title %}Évènements{% endblock %}
+
+{% block body %}
+    <div id="bt-plus">
+        <a href="creation_post.html" class="btn btn-block">
+            <img class="btn" src="img/add.svg" >
+        </a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2> Vos Evénements</h2>
+                <div class="card shadow">
+                    <img class="card-img-top" style="width: 100%;" src="img/drink.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="date">Paris - Vendredi 18 Juillet 2020</p>
+                        <h2 class="card-title">Apéro chez moi?</h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                    John Doe</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <a href="#" class="btn btn-eventon btn-block">Participer<i class="fas fa-star p-2"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-block">Voir tout</button>
+                    </div>
+                </div>
+                <h2 class="pt-5">Evénements à venir</h2>
+                <div class="card shadow">
+                    <img class="card-img-top" src="img/code.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="date">Paris - Vendredi 18 Juillet 2020</p>
+                        <h2 class="card-title">Apéro chez moi?</h2>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                    John Doe</h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 offset-3">
+                                <button type="button" class="btn btn-eventoff btn-block" data-toggle="button" aria-pressed="false" autocomplete="off">Participer<i class="fas fa-star p-2"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-block">Voir tout</button>
+                    </div>
+                </div>
+                <h2 class="pt-5"> Vos Evénements passés</h2>
+                <div class="card">
+                    <img class="card-img-top" src="img/jazz.png" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="date">Paris - Mercredi 16 Juillet 2020</p>
+                        <h2 class="card-title">Apéro chez moi?</h2>
+                        <div class="row">
+                            <div class="col-12">
+                                <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                    John Doe</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row py-3">
+                    <div class="col-12">
+                        <button class="btn btn-primary btn-block">Voir tout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

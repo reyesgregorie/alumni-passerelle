@@ -16,7 +16,7 @@
 
     <header class="shadow mb-4">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark pb-3">
-            <div id="root"></div>
+{#            <div id="root"></div>#}
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,35 +34,26 @@
                         <a class="nav-link" href="messages.html">Mes Messages</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="events.html">Evénéments</a>
+                        <a class="nav-link" href="{{ path('app_events_index') }}">Evénéments</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Zéphyr
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <h6 class="dropdown-header">Salons</h6>
-                            <a class="dropdown-item" href="#"># General</a>
-                            <a class="dropdown-item" href="#"># UI/UX</a>
-                            <a class="dropdown-item" href="#"> # developpeurs</a>
-                            <a class="dropdown-item" href="salon.html"><i class="fas fa-plus"></i> Nouveau Salon</a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            General
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <h6 class="dropdown-header">Salons</h6>
-                            <a class="dropdown-item" href="post.html"># General
-                                <span class="badge badgemenu badge-primary badge-pill">14</span>
-                                <span class="sr-only">unread messages</span>
-                            </a>
-                            <a class="dropdown-item" href="#"># Bootstrap</a>
-                            <a class="dropdown-item" href="#"> # Code</a>
-                            <a class="dropdown-item" href="salon.html"><i class="fas fa-plus"></i> Nouveau Salon</a>
-                        </div>
-                    </li>
+                    {% for group_parent in app.user.group %}
+                        <li class="nav-item dropdown">
+                            {% if group_parent.parent is null %}
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ group_parent.name }}
+                                </a>
+                            {% endif %}
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <h6 class="dropdown-header">Salons</h6>
+                                {% for group_child in app.user.group %}
+                                    {% if group_child.parent is not null and group_child.parent.id == group_parent.id %}
+                                        <a class="dropdown-item" href="#"># {{ group_child.name }}</a>
+                                    {% endif %}
+                                {% endfor %}
+                                <a class="dropdown-item" href="salon.html"><i class="fas fa-plus"></i> Nouveau Salon</a>
+                            </div>
+                        </li>
+                    {% endfor %}
                     {% if is_granted('ROLE_ADMIN') %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

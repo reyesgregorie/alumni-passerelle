@@ -3,18 +3,194 @@
 {% block title %}Hello GroupsController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div id="bt-plus">
+        <a href="creation_post.html" class="btn btn-block">
+            <img class="btn" src="img/add.svg" >
+        </a>
+    </div>
+    {% for group in app.user.group %}
+        {{ group.name }}
+    {% endfor %}
+    <div class="container">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        <div class="row">
+            <div class="col-12">
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/alumni-passerelle/src/Controller/GroupsController.php'|file_link(0) }}">src/Controller/GroupsController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/alumni-passerelle/templates/groups/index.html.twig'|file_link(0) }}">templates/groups/index.html.twig</a></code></li>
-    </ul>
-</div>
+                <div class="accordion" id="accordionExample">
+                    <article class="post shadow p-3 my-1" id="headingOne">
+                        <div class="row">
+                            <div class="col-7">
+                                <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                    John Doe</h3>
+
+                            </div>
+                            <div class="col-5 col-time">
+                                <time datetime="2018-07-20">July 7 2020</time>
+
+                            </div>
+                        </div>
+
+                        <h2>Javascript help ! </h2>
+                        <h5><span># General</span></h5>
+
+
+                        <div class="panel-body">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="tags-list">
+                                    <span class="badge badge-pill badge-primary" id="tag-animation">J.S.</span>
+                                    <span class="badge badge-pill badge-primary">Code</span>
+                                    <span class="badge badge-pill badge-primary">P.O.O.</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="panel-footer pt-4">
+                            <button class="btn btn-circle btn-link pl-0" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="true" aria-controls="collapseOne"><i class="fas fa-comment pr-2"></i>2 commentaires</button>
+                            <button class="btn"  data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-pen"></i></button>
+                        </div>
+
+                    </article>
+
+
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne"
+                         data-parent="#accordionExample">
+                        <article class="card-body post shadow p-3 mb-1">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                        John Doe</h3>
+                                </div>
+                                <div class="col-6 col-time">
+                                    <time datetime="2018-07-20">July 7 2020</time>
+                                </div>
+                            </div>
+
+
+                            <div class="panel-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                            </div>
+
+                        </article>
+                        <article class="card-body post shadow p-3 mb-1">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                        John Doe</h3>
+                                </div>
+                                <div class="col-6 col-time">
+                                    <time datetime="2018-08-20">July 8 2020</time>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                            </div>
+
+                        </article>
+                        <article class="card-body post shadow p-3 mb-1">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                        John Doe</h3>
+                                </div>
+                                <div class="col-6 col-time">
+                                    <time datetime="2018-08-20">July 8 2020</time>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                            </div>
+
+                        </article>
+                        <article class="card-body post shadow p-3 mb-1">
+
+                            <div class="row">
+                                <div class="col-6">
+                                    <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                        John Doe</h3>
+                                </div>
+                                <div class="col-6 col-time">
+                                    <time datetime="2018-08-20">July 8 2020</time>
+                                </div>
+                            </div>
+
+                            <div class="panel-body">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                            </div>
+
+                        </article>
+                        <section class="shadow p-3 mb-1" id="reponse">
+                            <label for="email" class="col-sm-2 control-label">Réponse</label>
+                            <div class="row align-items-end">
+                                <div class="col-10">
+                                    <textarea class="form-control" name="addComment" id="addComment" rows="2"></textarea>
+                                </div>
+
+                                <div class="col-2">
+                                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment"><span class="glyphicon glyphicon-send"></span><i class="fas fa-paper-plane"></i></button>
+                                </div>
+
+                            </div>
+
+                        </section>
+                    </div>
+                    </article>
+                </div>
+
+                <article class="post shadow p-3 mt-4">
+                    <div class="row">
+                        <div class="col-7">
+                            <h3><img class="rounded-circle" src="https://lh3.googleusercontent.com/-CxXg7_7ylq4/AAAAAAAAAAI/AAAAAAAAAQ8/LhCIKQC5Aq4/s46-c-k-no/photo.jpg" alt="Mouse0270" />
+                                John Doe</h3>
+
+                        </div>
+                        <div class="col-5 col-time">
+                            <time datetime="2018-07-20">July 7 2020</time>
+                        </div>
+                    </div>
+
+                    <h2>Javascript help ! </h2>
+                    <h5><span># General</span></h5>
+
+
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum nobis modi, illum eveniet itaque iusto ex. Laborum aspernatur eius molestiae at assumenda, voluptas nihil alias, cumque optio, dignissimos enim aperiam!</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="tags-list">
+                                <span class="badge badge-pill badge-primary" id="tag-animation">Programmation</span>
+                                <span class="badge badge-pill badge-primary">J.S. Vanilla</span>
+                                <span class="badge badge-pill badge-primary">DOM</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-footer pt-4">
+                        <button class="btn btn-circle btn-link pl-0" type="button" data-toggle="collapse" data-target=""
+                                aria-expanded="true" aria-controls=""><i class="fas fa-comment p-2"></i>2 commentaires</button>
+                        <button class="btn"><i class="fas fa-pen"></i></button>
+                    </div>
+
+                </article>
+
+
+            </div>
+        </div>
+
+    </div>
 {% endblock %}
